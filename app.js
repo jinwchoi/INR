@@ -11,15 +11,16 @@ var curTaskID=-1;
 /*var client = net.connect(8888,'128.237.166.175',function(){
   console.log('Connected');
 });*/
-var HOST='localhost'; //Change this back to localhost
-var PORT=3000;
+var HOST='128.173.152.6'; //Change this back to localhost
+//var HOST='localhost'; //Change this back to localhost
+var PORT=8888;
 //var HOST='128.237.221.1';
 //var HOST='128.237.208.246';
 //handle send or receive failures and connection
 client.connect(PORT,HOST,function(){
   console.log('Connected');
 });
-var io = require('socket.io').listen(app.listen(3000));
+var io = require('socket.io').listen(app.listen(PORT));
 client.on('data', function(data) {
   console.log(data.toString());
   io.emit('message', { message: data.toString() });
